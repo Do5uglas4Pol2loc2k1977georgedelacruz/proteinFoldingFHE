@@ -1,0 +1,788 @@
+/* Base Styles - FHE计算蓝主题 */
+:root {
+  --fhe-primary: #6366f1;
+  --fhe-secondary: #4f46e5;
+  --fhe-accent: #8b5cf6;
+  --fhe-dark: #1e1b4b;
+  --fhe-darker: #0f172a;
+  --fhe-light: #c7d2fe;
+  --bio-green: #10b981;
+  --bio-teal: #14b8a6;
+  --bio-cyan: #06b6d4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--fhe-darker) 0%, var(--fhe-dark) 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+/* 加载屏幕 */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--fhe-darker);
+}
+
+.dna-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--fhe-light);
+  border-top: 3px solid var(--fhe-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: relative;
+}
+
+.dna-spinner::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--bio-green);
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 主应用容器 */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--fhe-darker) 0%, var(--fhe-dark) 100%);
+}
+
+/* 头部样式 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(30, 27, 75, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--fhe-primary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-cyan));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dna-icon::before {
+  content: '🧬';
+  font-size: 1.5rem;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo span {
+  color: var(--fhe-light);
+}
+
+.fhe-badge {
+  background: linear-gradient(45deg, var(--fhe-primary), var(--fhe-accent));
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* 生物风格按钮 */
+.bio-button {
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-teal));
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bio-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.bio-button:hover::before {
+  left: 100%;
+}
+
+.bio-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.bio-button.primary {
+  background: linear-gradient(45deg, var(--bio-green), var(--bio-cyan));
+}
+
+.bio-button.success {
+  background: linear-gradient(45deg, var(--bio-green), #22c55e);
+}
+
+.bio-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 主内容区域 */
+.main-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 欢迎横幅 */
+.welcome-banner {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-text p {
+  color: var(--fhe-light);
+  font-size: 1.1rem;
+}
+
+/* 节点网络样式 */
+.network-nodes {
+  background: rgba(30, 27, 75, 0.6);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.network-node {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.network-node.active {
+  background: linear-gradient(45deg, var(--bio-green), var(--bio-cyan));
+  box-shadow: 0 0 10px var(--bio-green);
+  animation: pulse 2s infinite;
+}
+
+.network-node.inactive {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.network-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.network-health {
+  color: var(--bio-green);
+  font-weight: 600;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 数据流监控 */
+.computation-flow {
+  background: rgba(30, 27, 75, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.flow-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+  animation: slideIn 0.5s ease;
+}
+
+.flow-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--bio-cyan);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* 仪表盘网格 */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bio-card {
+  background: rgba(30, 27, 75, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.bio-card:hover {
+  border-color: var(--fhe-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+}
+
+.bio-card h3 {
+  margin-bottom: 1rem;
+  color: var(--fhe-light);
+  font-size: 1.2rem;
+}
+
+/* 蛋白质可视化 */
+.protein-visualizer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.protein-backbone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+}
+
+.protein-segment {
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background: rgba(99, 102, 241, 0.3);
+  top: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  transition: all 0.3s ease;
+}
+
+.protein-segment.active {
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-cyan));
+  box-shadow: 0 0 10px var(--fhe-primary);
+}
+
+.energy-level {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.energy-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, var(--bio-green), var(--bio-cyan));
+  transition: height 1s ease;
+}
+
+/* 任务列表 */
+.tasks-section {
+  margin-top: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(30, 27, 75, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  border-color: var(--fhe-primary);
+  transform: translateX(4px);
+}
+
+.task-visualization {
+  flex-shrink: 0;
+}
+
+.task-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--fhe-light);
+}
+
+.task-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--fhe-light);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.pending { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+.status-badge.computing { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+.status-badge.completed { background: rgba(34, 197, 94, 0.2); color: #10b981; }
+.status-badge.failed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+.task-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* 无任务状态 */
+.no-tasks {
+  text-align: center;
+  padding: 3rem;
+  color: var(--fhe-light);
+}
+
+.dna-icon.large::before {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+/* 模态框样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.create-modal, .task-detail-modal {
+  background: linear-gradient(135deg, var(--fhe-dark), var(--fhe-darker));
+  border: 1px solid var(--fhe-primary);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: var(--fhe-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* 表单样式 */
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--fhe-light);
+  font-weight: 600;
+}
+
+.bio-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+}
+
+.bio-input:focus {
+  outline: none;
+  border-color: var(--fhe-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* 加密预览 */
+.encryption-preview {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
+}
+
+.preview-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.plain-data, .encrypted-data {
+  flex: 1;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.plain-data div, .encrypted-data div {
+  font-family: monospace;
+  margin-top: 0.5rem;
+  color: var(--bio-cyan);
+}
+
+.encryption-arrow {
+  color: var(--fhe-primary);
+  font-size: 1.5rem;
+}
+
+/* 模态框底部 */
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.3);
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* 交易状态模态框 */
+.transaction-modal {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1001;
+}
+
+.transaction-content {
+  padding: 1.5rem;
+  min-width: 300px;
+  text-align: center;
+}
+
+.transaction-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 页脚 */
+.app-footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(30, 27, 75, 0.8);
+  border-top: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-link {
+  color: var(--fhe-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--fhe-primary);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--fhe-light);
+  font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .welcome-banner {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .task-actions {
+    margin-left: 0;
+    justify-content: center;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* 统计网格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--fhe-primary), var(--bio-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--fhe-light);
+  margin-top: 0.25rem;
+}
+
+/* 网络状态 */
+.network-status {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-secure {
+  color: var(--bio-green);
+  font-weight: 600;
+}
+
+/* 教程部分 */
+.tutorial-section {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tutorial-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tutorial-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.step-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--fhe-light);
+}
+
+.step-content p {
+  color: var(--fhe-light);
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
