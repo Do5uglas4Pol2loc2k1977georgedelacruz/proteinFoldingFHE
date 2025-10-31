@@ -1,4 +1,4 @@
-```markdown
+
 # Protein Folding FHE: A Decentralized Platform for Secure Protein Simulation
 
 The **Protein Folding FHE** is a cutting-edge decentralized computing platform designed for the privacy-centric simulation of protein folding processes. By leveraging **Zama's Fully Homomorphic Encryption (FHE) technology**, this platform enables researchers to securely utilize global computing resources while safeguarding proprietary data, a crucial necessity in the realm of drug discovery and biotechnology.
